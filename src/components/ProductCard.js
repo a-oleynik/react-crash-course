@@ -1,6 +1,7 @@
 export function ProductCard(props) {
   return (
     <article style={{
+      width: "100%",
       border: "1px solid white",
       borderRadius: "8px",
       padding: "16px",

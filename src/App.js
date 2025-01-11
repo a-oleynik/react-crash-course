@@ -1,5 +1,6 @@
 import './App.css';
 import {ProductCard} from "./components/ProductCard";
+import {ProductList} from "./components/ProductList";
 
 function App() {
   const product = {
@@ -15,7 +16,11 @@ function App() {
 
   return (
     <div className="App">
-      <ProductCard product = {product}/>
+      <ProductList>
+        <ProductCard product={product}/>
+        <ProductCard product={product}/>
+        <ProductCard product={product}/>
+      </ProductList>
     </div>
   );
 }
