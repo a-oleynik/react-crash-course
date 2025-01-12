@@ -17,9 +17,9 @@ function App() {
   return (
     <div className="App">
       <ProductList>
+        <ProductCard background="darkolivegreen" product={product}/>
         <ProductCard product={product}/>
-        <ProductCard product={product}/>
-        <ProductCard product={product}/>
+        <ProductCard background="peru" product={product}/>
       </ProductList>
     </div>
   );
