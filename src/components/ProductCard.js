@@ -1,4 +1,4 @@
-export function ProductCard({product, background = "slategrey"}) {
+export function ProductCard({product, background = "slategrey", ...restProps}) {
   return (
     <article style={{
       background,
@@ -12,8 +12,7 @@ export function ProductCard({product, background = "slategrey"}) {
       <img
         src={product.imageSrc}
         alt="iPhone 15 Pro"
-        width="128px"
-        height="128px"
+        {...restProps}
       />
       <p>Specification:</p>
       <ul style={{listStyle: "none", padding: 0}}>
