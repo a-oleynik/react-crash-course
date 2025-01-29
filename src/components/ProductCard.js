@@ -19,7 +19,15 @@ export function ProductCard({product, background = "slategrey", onPurchase}) {
       <ul style={{listStyle: "none", padding: 0}}>
         {product.specification.map((spec, index) => <li key={index}>{spec}</li>)}
       </ul>
-      <button onClick={() => onPurchase(product)}>Buy (From ${product.price})</button>
+      <Status stockCount={product.stockCount}/>
+      {product.stockCount > 0 && (
+        <button onClick={() => onPurchase(product)}>Buy (From ${product.price})</button>)}
     </article>
   );
+}
+
+function Status({stockCount}) {
+  const notAvailableTemplate = (<p style={{fontSize: "14px", color: "lightsalmon"}}>Out of stock</p>);
+  const availableTemplate = (<p style={{fontSize: "14px", color: "lightgreen"}}>{stockCount} items available</p>);
+  return stockCount === 0 ? notAvailableTemplate : availableTemplate
 }
