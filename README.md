@@ -1,8 +1,8 @@
 # Implemented tasks for the course 'React Crash Course: From Zero to Hero' by *Dmytro* *Vasyliev*
 
-Link to the course [React Crash Course: From Zero to Hero](https://www.udemy.com/course/react-crash-course-from-zero-to-hero).
+Link to the course [React Crash Course: From Zero to Hero](https://www.udemy.com/course/react-crash-course-from-zero-to-hero)
 
-Link to the course repo [Repository for 'React Crash Course: From Zero to Hero'](https://github.com/dvasyliev/react-crash-course).
+Link to the course repo [Repository for 'React Crash Course: From Zero to Hero'](https://github.com/dvasyliev/react-crash-course)
 
 
 # Getting Started with Create React App
