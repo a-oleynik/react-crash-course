@@ -1,8 +1,8 @@
-import './ProductCard.css'
+import styles from './ProductCard.module.css'
 
 export function ProductCard({product, background = "slategrey", onPurchase}) {
   return (
-    <article className="Container" style={{ background }}>
+    <article className={styles.Container} style={{background}}>
       <h2> {product.title}</h2>
       <img
         src={product.imageSrc}
@@ -11,7 +11,7 @@ export function ProductCard({product, background = "slategrey", onPurchase}) {
         height={128}
       />
       <p>Specification:</p>
-      <ul className="Specification">
+      <ul className={styles.Specification}>
         {product.specification.map((spec, index) => <li key={index}>{spec}</li>)}
       </ul>
       <Status stockCount={product.stockCount}/>
@@ -22,7 +22,7 @@ export function ProductCard({product, background = "slategrey", onPurchase}) {
 }
 
 function Status({stockCount}) {
-  const notAvailableTemplate = (<p className="NotAvailableStatus">Out of stock</p>);
-  const availableTemplate = (<p className="AvailableStatus">{stockCount} items available</p>);
+  const notAvailableTemplate = (<p className={styles.NotAvailableStatus}>Out of stock</p>);
+  const availableTemplate = (<p className={styles.AvailableStatus}>{stockCount} items available</p>);
   return stockCount === 0 ? notAvailableTemplate : availableTemplate
 }
