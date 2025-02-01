@@ -1,5 +1,12 @@
-# Getting Started with Create React App
+# Implemented tasks for the course 'React Crash Course: From Zero to Hero' by *Dmytro* *Vasyliev*
 
+Link to the course [React Crash Course: From Zero to Hero](https://www.udemy.com/course/react-crash-course-from-zero-to-hero).
+
+Link to the course repo [Repository for 'React Crash Course: From Zero to Hero'](https://github.com/dvasyliev/react-crash-course).
+
+
+# Getting Started with Create React App
+Practical React Course for Beginners: Build first App, Learn React Components, JSX, Props, Events, State, Hooks
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
