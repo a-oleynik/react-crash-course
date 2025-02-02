@@ -9,6 +9,7 @@ import {useState} from "react";
 function App() {
   const products = [
     {
+      id: 1,
       imageSrc: "images/iphone.png",
       title: "iPhone 15 Pro",
       specification: [
@@ -20,6 +21,7 @@ function App() {
       price: 999,
     },
     {
+      id: 2,
       imageSrc: "images/airpods.png",
       title: "AirPods Pro 2",
       specification: [
@@ -31,6 +33,7 @@ function App() {
       price: 249,
     },
     {
+      id: 3,
       imageSrc: "images/apple-watch.png",
       title: "Apple Watch 9",
       specification: [
@@ -50,6 +53,7 @@ function App() {
     other: "other value",
 
   });
+  const [favorites, setFavorites] = useState([]);
 
   function handlePurchase(product) {
     alert(`You clicked on ${product.title} which cost $${product.price}`);
@@ -65,6 +69,14 @@ function App() {
     }));
   }
 
+  function handleFavorite(productId) {
+    if (favorites.includes(productId)) {
+      setFavorites((previousFavorites) => previousFavorites.filter((id) => id !== productId));
+    } else {
+      setFavorites((previousFavorites) => [...previousFavorites, productId]);
+    }
+  }
+
   return (
     <div className={styles.App}>
       <ProductList>
@@ -72,7 +84,9 @@ function App() {
           <ProductCard
             key={product.title}
             product={product}
+            isFavorite={favorites.includes(product.id)}
             onPurchase={handlePurchase}
+            onFavorite={handleFavorite}
           />))}
       </ProductList>
       <h2>Products filtered by price</h2>
