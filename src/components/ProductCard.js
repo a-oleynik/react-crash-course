@@ -8,7 +8,14 @@ export function ProductCard({product, background = "slategrey", onPurchase}) {
 
   function handleClick() {
     if (stockCount > 0) {
-      setStockCount(stockCount - 1);
+      setStockCount((previousStockCount) => previousStockCount - 1);
+      console.log(`stockCount = ${stockCount}`);
+    }
+  }
+
+  function handleTwoClicks() {
+    if (stockCount > 1) {
+      setStockCount((previousStockCount) => previousStockCount - 2);
       console.log(`stockCount = ${stockCount}`);
       onPurchase(product);
     }
@@ -33,7 +40,15 @@ export function ProductCard({product, background = "slategrey", onPurchase}) {
       }
       <Status stockCount={stockCount}/>
       {stockCount > 0 && (
-        <button onClick={handleClick}>Buy (From ${product.price})</button>)}
+        <>
+          <p>${product.price}</p>
+          <button onClick={handleClick}>Buy</button>
+        </>
+      )}
+      {stockCount > 1 && (
+        <button onClick={handleTwoClicks}>Buy 2</button>
+      )}
+
     </article>
   );
 }
