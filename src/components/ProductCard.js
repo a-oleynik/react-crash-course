@@ -9,21 +9,17 @@ export function ProductCard({
                               onFavorite
                             }) {
   // useState hook should be defined on top of a component
-  const [stockCount, setStockCount] = useState(product.stockCount);
   const [showMore, setShowMore] = useState(false);
 
   function handleClick() {
-    if (stockCount > 0) {
-      setStockCount((previousStockCount) => previousStockCount - 1);
-      console.log(`stockCount = ${stockCount}`);
+    if (product.stockCount > 0) {
+      onPurchase(product.id, product.stockCount - 1);
     }
   }
 
   function handleTwoClicks() {
-    if (stockCount > 1) {
-      setStockCount((previousStockCount) => previousStockCount - 2);
-      console.log(`stockCount = ${stockCount}`);
-      onPurchase(product);
+    if (product.stockCount > 1) {
+      onPurchase(product.id, product.stockCount - 2);
     }
   }
 
@@ -49,14 +45,14 @@ export function ProductCard({
           {product.specification.map((spec, index) => <li key={index}>{spec}</li>)}
         </ul>)
       }
-      <Status stockCount={stockCount}/>
-      {stockCount > 0 && (
+      <Status stockCount={product.stockCount}/>
+      {product.stockCount > 0 && (
         <>
           <p>${product.price}</p>
           <button onClick={handleClick}>Buy</button>
         </>
       )}
-      {stockCount > 1 && (
+      {product.stockCount > 1 && (
         <button onClick={handleTwoClicks}>Buy 2</button>
       )}
 
