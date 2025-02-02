@@ -1,10 +1,14 @@
-import styles from './ProductCard.module.css'
+import styles from './ProductCard.module.css';
+import {useState} from 'react';
 
 export function ProductCard({product, background = "slategrey", onPurchase}) {
-  let stockCount = product.stockCount;
+  // useState hook should be defined on top of a component
+  const [stockCount, setStockCount] = useState(product.stockCount);
+  const [showMore, setShowMore] = useState(false);
+
   function handleClick() {
     if (stockCount > 0) {
-      stockCount = stockCount - 1;
+      setStockCount(stockCount - 1);
       console.log(`stockCount = ${stockCount}`);
       onPurchase(product);
     }
@@ -19,10 +23,14 @@ export function ProductCard({product, background = "slategrey", onPurchase}) {
         width={128}
         height={128}
       />
-      <p>Specification:</p>
-      <ul className={styles.Specification}>
-        {product.specification.map((spec, index) => <li key={index}>{spec}</li>)}
-      </ul>
+      <p>Specification: {' '}
+        <button onClick={() => setShowMore(!showMore)}>{showMore ? 'hide' : 'show'}</button>
+      </p>
+      {showMore && (
+        <ul className={styles.Specification}>
+          {product.specification.map((spec, index) => <li key={index}>{spec}</li>)}
+        </ul>)
+      }
       <Status stockCount={stockCount}/>
       {stockCount > 0 && (
         <button onClick={handleClick}>Buy (From ${product.price})</button>)}
