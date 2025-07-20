@@ -1,7 +1,7 @@
 import {people} from "./data/people";
 import Profile from "./components/Profile";
 
-export default function Gallery() {
+export default function App() {
 
   return (
     <div>

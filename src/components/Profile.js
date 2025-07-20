@@ -13,7 +13,7 @@ export default function Profile({person}) {
         </li>
         <li>
           <b>Awards: {person.awards.length} </b>
-          ({person.awards})
+          ({person.awards.join(", ")})
         </li>
         <li>
           <b>Discovered: </b>
